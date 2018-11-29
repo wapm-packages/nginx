@@ -221,7 +221,7 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_upstream_zone_module.o \
 	objs/ngx_modules.o
 
-	$(LINK) WASM=1 -o objs/nginx \
+	$(LINK)  -s WASM=1 -o objs/nginx.js \
 	objs/src/core/nginx.o \
 	objs/src/core/ngx_log.o \
 	objs/src/core/ngx_palloc.o \

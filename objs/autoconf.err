@@ -101,7 +101,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpyBWypl.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpERtxsr.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -159,7 +159,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpVSlueV.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp12yrqA.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -211,7 +211,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp5SnW_s.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpTy4kx2.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -267,7 +267,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpAUe66U.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpyD0evo.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -315,7 +315,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpgj1kY9.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp35RPlu.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -558,7 +558,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmplWprEl.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpYJXCLn.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -606,7 +606,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp_Tilmx.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpmN5HEu.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -719,7 +719,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpkKRwiR.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpe_llnI.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -813,7 +813,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpkX0aIe.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpVRMpmZ.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -886,7 +886,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpHFEusL.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpVguER7.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -983,7 +983,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpXwoPAC.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp8X24HX.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1035,7 +1035,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpFKJ9Df.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpBwcDl0.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1084,7 +1084,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpVotSKZ.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpkihbpP.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1134,7 +1134,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpRqlCeG.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpri1s0I.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1186,7 +1186,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpedWQXr.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp4rnHPN.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1236,7 +1236,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpOo4sGa.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpwLDKJm.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1292,7 +1292,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp2n2mhM.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpfda8yO.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1340,7 +1340,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpRI9HcC.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpDP3fjG.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1577,7 +1577,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpRrrZFz.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpTHE5zy.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
