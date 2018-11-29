@@ -1,6 +1,6 @@
 
 CC =	/usr/local/Cellar/emscripten/1.38.12/libexec/emcc
-CFLAGS =  -pipe  -O -Wall -Wextra -Wpointer-arith -Wconditional-uninitialized -Wno-unused-parameter -Wno-deprecated-declarations -Werror -g 
+CFLAGS =  -pipe  -O -Wall -Wextra -Wpointer-arith -Wconditional-uninitialized -Wno-unused-parameter -Wno-deprecated-declarations -Werror -Wno-sign-compare -g 
 CPP =	/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -E
 LINK =	$(CC)
 
@@ -71,8 +71,8 @@ CORE_DEPS = src/core/nginx.h \
 	src/os/unix/ngx_user.h \
 	src/os/unix/ngx_dlopen.h \
 	src/os/unix/ngx_process_cycle.h \
-	src/os/unix/ngx_darwin_config.h \
-	src/os/unix/ngx_darwin.h \
+	src/os/unix/ngx_linux_config.h \
+	src/os/unix/ngx_linux.h \
 	objs/ngx_auto_config.h
 
 
@@ -167,8 +167,9 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/os/unix/ngx_user.o \
 	objs/src/os/unix/ngx_dlopen.o \
 	objs/src/os/unix/ngx_process_cycle.o \
-	objs/src/os/unix/ngx_darwin_init.o \
-	objs/src/event/modules/ngx_kqueue_module.o \
+	objs/src/os/unix/ngx_linux_init.o \
+	objs/src/event/modules/ngx_select_module.o \
+	objs/src/event/modules/ngx_poll_module.o \
 	objs/src/http/ngx_http.o \
 	objs/src/http/ngx_http_core_module.o \
 	objs/src/http/ngx_http_special_response.o \
@@ -220,7 +221,7 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_upstream_zone_module.o \
 	objs/ngx_modules.o
 
-	$(LINK) -o objs/nginx \
+	$(LINK) WASM=1 -o objs/nginx \
 	objs/src/core/nginx.o \
 	objs/src/core/ngx_log.o \
 	objs/src/core/ngx_palloc.o \
@@ -285,8 +286,9 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/os/unix/ngx_user.o \
 	objs/src/os/unix/ngx_dlopen.o \
 	objs/src/os/unix/ngx_process_cycle.o \
-	objs/src/os/unix/ngx_darwin_init.o \
-	objs/src/event/modules/ngx_kqueue_module.o \
+	objs/src/os/unix/ngx_linux_init.o \
+	objs/src/event/modules/ngx_select_module.o \
+	objs/src/event/modules/ngx_poll_module.o \
 	objs/src/http/ngx_http.o \
 	objs/src/http/ngx_http_core_module.o \
 	objs/src/http/ngx_http_special_response.o \
@@ -336,7 +338,8 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_upstream_random_module.o \
 	objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
 	objs/src/http/modules/ngx_http_upstream_zone_module.o \
-	objs/ngx_modules.o
+	objs/ngx_modules.o \
+	-Wl,-E
 	
 
 
@@ -797,18 +800,25 @@ objs/src/os/unix/ngx_process_cycle.o:	$(CORE_DEPS) \
 		src/os/unix/ngx_process_cycle.c
 
 
-objs/src/os/unix/ngx_darwin_init.o:	$(CORE_DEPS) \
-	src/os/unix/ngx_darwin_init.c
+objs/src/os/unix/ngx_linux_init.o:	$(CORE_DEPS) \
+	src/os/unix/ngx_linux_init.c
 	$(CC) -c $(CFLAGS) $(CORE_INCS) \
-		-o objs/src/os/unix/ngx_darwin_init.o \
-		src/os/unix/ngx_darwin_init.c
+		-o objs/src/os/unix/ngx_linux_init.o \
+		src/os/unix/ngx_linux_init.c
 
 
-objs/src/event/modules/ngx_kqueue_module.o:	$(CORE_DEPS) \
-	src/event/modules/ngx_kqueue_module.c
+objs/src/event/modules/ngx_select_module.o:	$(CORE_DEPS) \
+	src/event/modules/ngx_select_module.c
 	$(CC) -c $(CFLAGS) $(CORE_INCS) \
-		-o objs/src/event/modules/ngx_kqueue_module.o \
-		src/event/modules/ngx_kqueue_module.c
+		-o objs/src/event/modules/ngx_select_module.o \
+		src/event/modules/ngx_select_module.c
+
+
+objs/src/event/modules/ngx_poll_module.o:	$(CORE_DEPS) \
+	src/event/modules/ngx_poll_module.c
+	$(CC) -c $(CFLAGS) $(CORE_INCS) \
+		-o objs/src/event/modules/ngx_poll_module.o \
+		src/event/modules/ngx_poll_module.c
 
 
 objs/src/http/ngx_http.o:	$(CORE_DEPS) $(HTTP_DEPS) \

@@ -25,13 +25,13 @@
 #endif
 
 
-#ifndef NGX_HAVE_KQUEUE
-#define NGX_HAVE_KQUEUE  1
+#ifndef NGX_HAVE_O_PATH
+#define NGX_HAVE_O_PATH  1
 #endif
 
 
-#ifndef NGX_HAVE_CLEAR_EVENT
-#define NGX_HAVE_CLEAR_EVENT  1
+#ifndef NGX_HAVE_GNU_CRYPT_R
+#define NGX_HAVE_GNU_CRYPT_R  1
 #endif
 
 
@@ -55,6 +55,11 @@
 
 #ifndef NGX_HAVE_O_DIRECT
 #define NGX_HAVE_O_DIRECT  1
+#endif
+
+
+#ifndef NGX_HAVE_STATFS
+#define NGX_HAVE_STATFS  1
 #endif
 
 
@@ -215,6 +220,16 @@
 
 #ifndef NGX_HAVE_GETADDRINFO
 #define NGX_HAVE_GETADDRINFO  1
+#endif
+
+
+#ifndef NGX_HAVE_SELECT
+#define NGX_HAVE_SELECT  1
+#endif
+
+
+#ifndef NGX_HAVE_POLL
+#define NGX_HAVE_POLL  1
 #endif
 
 

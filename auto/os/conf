@@ -20,7 +20,7 @@ case "$NGX_PLATFORM" in
     ;;
 
     Darwin:*)
-        . auto/os/darwin
+        . auto/os/linux
     ;;
 
     win32)

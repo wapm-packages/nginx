@@ -1,0 +1,9 @@
+#define EVFILT_READ -1
+#define EVFILT_WRITE -2
+#define EVFILT_VNODE -4
+#define EV_EOF 0x8000
+#define EV_ERROR 0x4000
+#define EV_FLAG1 0x2000
+#define EV_CLEAR 0x20
+#define EV_ONESHOT 0x10
+#define EV_DISABLE 0x8

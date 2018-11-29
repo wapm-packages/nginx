@@ -933,7 +933,7 @@ ngx_feature_test="struct msghdr  msg;
 
 ngx_feature="ioctl(FIONBIO)"
 ngx_feature_name="NGX_HAVE_FIONBIO"
-ngx_feature_run=no
+ngx_feature_run=yes
 ngx_feature_incs="#include <sys/ioctl.h>
                   #include <stdio.h>
                   $NGX_INCLUDE_SYS_FILIO_H"
