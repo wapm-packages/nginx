@@ -5,13 +5,13 @@ clean:
 	rm -rf Makefile objs
 
 build:
-	$(MAKE) -f objs/Makefile
+	$(MAKE) -f objs_wasm/Makefile
 
 install:
-	$(MAKE) -f objs/Makefile install
+	$(MAKE) -f objs_wasm/Makefile install
 
 modules:
-	$(MAKE) -f objs/Makefile modules
+	$(MAKE) -f objs_wasm/Makefile modules
 
 upgrade:
 	/usr/local/nginx/sbin/nginx -t
