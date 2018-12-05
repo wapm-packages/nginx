@@ -216,7 +216,7 @@ ngx_sock_ntop(struct sockaddr *sa, socklen_t socklen, u_char *text, size_t len,
 
     switch (sa->sa_family)
     {
-    default:
+
     case AF_INET:
         printf("nginx::AF_INET\n");
 
@@ -286,6 +286,10 @@ ngx_sock_ntop(struct sockaddr *sa, socklen_t socklen, u_char *text, size_t len,
         return (p - text - 1);
 
 #endif
+
+    default:
+        printf("nginx::default (FAIL!!)\n");
+        return 0;
     }
 }
 
