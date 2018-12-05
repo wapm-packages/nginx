@@ -1746,8 +1746,8 @@ var ASM_CONSTS = [];
 
 STATIC_BASE = GLOBAL_BASE;
 
-STATICTOP = STATIC_BASE + 216144;
-/* global initializers */  __ATINIT__.push({ func: function() { console.log("__ATINIT__::___emscripten_environ_constructor"); ___emscripten_environ_constructor() } });
+STATICTOP = STATIC_BASE + 216896;
+/* global initializers */  __ATINIT__.push({ func: function() { ___emscripten_environ_constructor() } });
 
 
 
@@ -1755,7 +1755,7 @@ STATICTOP = STATIC_BASE + 216144;
 
 
 
-var STATIC_BUMP = 216144;
+var STATIC_BUMP = 216896;
 Module["STATIC_BASE"] = STATIC_BASE;
 Module["STATIC_BUMP"] = STATIC_BUMP;
 
@@ -4919,7 +4919,6 @@ function copyTempDouble(ptr) {
         for (var i = 0; i < iovcnt; i++) {
           var ptr = HEAP32[(((iov)+(i*8))>>2)];
           var len = HEAP32[(((iov)+(i*8 + 4))>>2)];
-          console.log("->doWritev", ptr, len);
           var curr = FS.write(stream, HEAP8,ptr, len, offset);
           if (curr < 0) return -1;
           ret += curr;
@@ -6162,7 +6161,6 @@ function copyTempDouble(ptr) {
   try {
    // writev
       var stream = SYSCALLS.getStreamFromFD(), iov = SYSCALLS.get(), iovcnt = SYSCALLS.get();
-      console.log("___syscall146", iov, iovcnt);
       return SYSCALLS.doWritev(stream, iov, iovcnt);
     } catch (e) {
     if (typeof FS === 'undefined' || !(e instanceof FS.ErrnoError)) abort(e);
@@ -7809,9 +7807,9 @@ function copyTempDouble(ptr) {
   return _wait.apply(null, arguments)
   }
 FS.staticInit();__ATINIT__.unshift(function() { if (!Module["noFSInit"] && !FS.init.initialized) FS.init() });__ATMAIN__.push(function() { FS.ignorePermissions = false });__ATEXIT__.push(function() { FS.quit() });;
-__ATINIT__.unshift(function() { console.log("__ATINIT__::TTY"); TTY.init() });__ATEXIT__.push(function() { TTY.shutdown() });;
+__ATINIT__.unshift(function() { TTY.init() });__ATEXIT__.push(function() { TTY.shutdown() });;
 if (ENVIRONMENT_IS_NODE) { var fs = require("fs"); var NODEJS_PATH = require("path"); NODEFS.staticInit(); };
-__ATINIT__.push(function() { console.log("__ATINIT__::SOCKFS"); SOCKFS.root = FS.mount(SOCKFS, {}, null); });;
+__ATINIT__.push(function() { SOCKFS.root = FS.mount(SOCKFS, {}, null); });;
 if (ENVIRONMENT_IS_NODE) {
     _emscripten_get_now = function _emscripten_get_now_actual() {
       var t = process['hrtime']();
@@ -7992,26 +7990,6 @@ function invoke_viiii(index,a1,a2,a3,a4) {
 Module.asmGlobalArg = {};
 
 Module.asmLibraryArg = { "abort": abort, "assert": assert, "enlargeMemory": enlargeMemory, "getTotalMemory": getTotalMemory, "abortOnCannotGrowMemory": abortOnCannotGrowMemory, "abortStackOverflow": abortStackOverflow, "nullFunc_ii": nullFunc_ii, "nullFunc_iii": nullFunc_iii, "nullFunc_iiii": nullFunc_iiii, "nullFunc_iiiii": nullFunc_iiiii, "nullFunc_iiiiii": nullFunc_iiiiii, "nullFunc_vi": nullFunc_vi, "nullFunc_vii": nullFunc_vii, "nullFunc_viii": nullFunc_viii, "nullFunc_viiii": nullFunc_viiii, "invoke_ii": invoke_ii, "invoke_iii": invoke_iii, "invoke_iiii": invoke_iiii, "invoke_iiiii": invoke_iiiii, "invoke_iiiiii": invoke_iiiiii, "invoke_vi": invoke_vi, "invoke_vii": invoke_vii, "invoke_viii": invoke_viii, "invoke_viiii": invoke_viiii, "___buildEnvironment": ___buildEnvironment, "___lock": ___lock, "___setErrNo": ___setErrNo, "___syscall10": ___syscall10, "___syscall102": ___syscall102, "___syscall12": ___syscall12, "___syscall122": ___syscall122, "___syscall140": ___syscall140, "___syscall142": ___syscall142, "___syscall145": ___syscall145, "___syscall146": ___syscall146, "___syscall15": ___syscall15, "___syscall168": ___syscall168, "___syscall180": ___syscall180, "___syscall181": ___syscall181, "___syscall191": ___syscall191, "___syscall192": ___syscall192, "___syscall194": ___syscall194, "___syscall195": ___syscall195, "___syscall196": ___syscall196, "___syscall197": ___syscall197, "___syscall199": ___syscall199, "___syscall20": ___syscall20, "___syscall201": ___syscall201, "___syscall202": ___syscall202, "___syscall212": ___syscall212, "___syscall220": ___syscall220, "___syscall221": ___syscall221, "___syscall268": ___syscall268, "___syscall272": ___syscall272, "___syscall295": ___syscall295, "___syscall3": ___syscall3, "___syscall300": ___syscall300, "___syscall334": ___syscall334, "___syscall340": ___syscall340, "___syscall38": ___syscall38, "___syscall39": ___syscall39, "___syscall4": ___syscall4, "___syscall5": ___syscall5, "___syscall54": ___syscall54, "___syscall6": ___syscall6, "___syscall60": ___syscall60, "___syscall63": ___syscall63, "___syscall64": ___syscall64, "___syscall66": ___syscall66, "___syscall75": ___syscall75, "___syscall85": ___syscall85, "___syscall91": ___syscall91, "___syscall97": ___syscall97, "___unlock": ___unlock, "__addDays": __addDays, "__arraySum": __arraySum, "__exit": __exit, "__inet_ntop4_raw": __inet_ntop4_raw, "__inet_ntop6_raw": __inet_ntop6_raw, "__inet_pton4_raw": __inet_pton4_raw, "__inet_pton6_raw": __inet_pton6_raw, "__isLeapYear": __isLeapYear, "__read_sockaddr": __read_sockaddr, "__write_sockaddr": __write_sockaddr, "_abort": _abort, "_clock_gettime": _clock_gettime, "_emscripten_get_now": _emscripten_get_now, "_emscripten_get_now_is_monotonic": _emscripten_get_now_is_monotonic, "_emscripten_memcpy_big": _emscripten_memcpy_big, "_endgrent": _endgrent, "_execl": _execl, "_execve": _execve, "_exit": _exit, "_fork": _fork, "_getaddrinfo": _getaddrinfo, "_getenv": _getenv, "_getgrent": _getgrent, "_getgrnam": _getgrnam, "_getpagesize": _getpagesize, "_getpwnam": _getpwnam, "_gettimeofday": _gettimeofday, "_gmtime_r": _gmtime_r, "_kill": _kill, "_llvm_stackrestore": _llvm_stackrestore, "_llvm_stacksave": _llvm_stacksave, "_localtime": _localtime, "_localtime_r": _localtime_r, "_mktime": _mktime, "_raise": _raise, "_sched_yield": _sched_yield, "_sem_init": _sem_init, "_sem_post": _sem_post, "_sem_wait": _sem_wait, "_setgrent": _setgrent, "_setgroups": _setgroups, "_setitimer": _setitimer, "_sigaction": _sigaction, "_sigaddset": _sigaddset, "_sigemptyset": _sigemptyset, "_sigprocmask": _sigprocmask, "_sigsuspend": _sigsuspend, "_strftime": _strftime, "_sysconf": _sysconf, "_time": _time, "_tzset": _tzset, "_usleep": _usleep, "_utimes": _utimes, "_wait": _wait, "_waitpid": _waitpid, "DYNAMICTOP_PTR": DYNAMICTOP_PTR, "tempDoublePtr": tempDoublePtr, "STACKTOP": STACKTOP, "STACK_MAX": STACK_MAX };
-
-function objectMap(object, mapFn) {
-  return Object.keys(object).reduce(function(result, key) {
-      result[key] = mapFn(key, object[key])
-      return result
-  }, {})
-}
-
-Module.asmLibraryArg = objectMap(Module.asmLibraryArg, function(key, f) {
-  if (typeof f !== "function") {
-    return f;
-  }
-  function mocked_f() {
-    // console.log(`env.${key}(${Array.from(arguments).join(', ')})`);
-    result = f.apply(Module, arguments);
-    console.log(`env.${key}(${Array.from(arguments).join(', ')}) -> ${result}`);
-    return result
-  }
-  return mocked_f;
-});
 // EMSCRIPTEN_START_ASM
 var asm =Module["asm"]// EMSCRIPTEN_END_ASM
 (Module.asmGlobalArg, Module.asmLibraryArg, buffer);
@@ -8420,12 +8398,11 @@ dependenciesFulfilled = function runCaller() {
 }
 
 Module['callMain'] = function callMain(args) {
-  console.log("callMain");
   assert(runDependencies == 0, 'cannot call main when async dependencies remain! (listen on __ATMAIN__)');
   assert(__ATPRERUN__.length == 0, 'cannot call main when preRun functions remain to be called');
 
   args = args || [];
-  console.log("ensureInitRuntime");
+
   ensureInitRuntime();
 
   var argc = args.length+1;
@@ -8438,7 +8415,7 @@ Module['callMain'] = function callMain(args) {
 
 
   try {
-    console.log(argc, argv, 0);
+
     var ret = Module['_main'](argc, argv, 0);
 
 
@@ -8490,16 +8467,12 @@ function run(args) {
     Module['calledRun'] = true;
 
     if (ABORT) return;
-    console.log("ensureInitRuntime");
+
     ensureInitRuntime();
 
-    console.log("preMain");
     preMain();
 
-    if (Module['onRuntimeInitialized']) {
-      console.log("onRuntimeInitialized");
-      Module['onRuntimeInitialized']();
-    }
+    if (Module['onRuntimeInitialized']) Module['onRuntimeInitialized']();
 
     if (Module['_main'] && shouldRunNow) Module['callMain'](args);
 
@@ -8626,7 +8599,6 @@ Module['abort'] = abort;
 if (Module['preInit']) {
   if (typeof Module['preInit'] == 'function') Module['preInit'] = [Module['preInit']];
   while (Module['preInit'].length > 0) {
-    console.log("preInit");
     Module['preInit'].pop()();
   }
 }
