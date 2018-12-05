@@ -374,6 +374,7 @@ ngx_select_process_events(ngx_cycle_t *cycle, ngx_msec_t timer,
 
     if (ready != nready)
     {
+        printf("nginx::ngx_select_process_events::ngx_select_repair_fd_sets\n");
         ngx_log_error(NGX_LOG_ALERT, cycle->log, 0,
                       "select ready != events: %d:%d", ready, nready);
 

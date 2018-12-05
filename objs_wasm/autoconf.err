@@ -5,6 +5,10 @@ checking for C compiler
 
 
 ----------------------------------------
+checking for --with-ld-opt="-s WASM=1"
+
+
+----------------------------------------
 checking for -Wl,-E switch
 
 
@@ -39,7 +43,7 @@ checking for limits.h
 ----------------------------------------
 checking for sys/filio.h
 
-objs/autotest.c:3:10: fatal error: 'sys/filio.h' file not found
+objs_wasm/autotest.c:3:10: fatal error: 'sys/filio.h' file not found
 #include <sys/filio.h>
          ^~~~~~~~~~~~~
 1 error generated.
@@ -54,7 +58,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -o objs_wasm/autotest objs_wasm/autotest.c
 ----------
 
 ----------------------------------------
@@ -74,317 +78,13 @@ checking for crypt.h
 
 
 ----------------------------------------
-checking for epoll
-
-error: unresolved symbol: epoll_create
-Aborting compilation due to previous errors | undefined
-Traceback (most recent call last):
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 3062, in <module>
-    sys.exit(run())
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 1778, in run
-    final = shared.Building.emscripten(final, append_ext=False, extra_args=extra_args)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/shared.py", line 2268, in emscripten
-    emscripten._main(cmdline)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2228, in _main
-    return temp_files.run_and_clean(lambda: main(
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/tempfiles.py", line 93, in run_and_clean
-    return func()
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2233, in <lambda>
-    DEBUG=DEBUG,
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2159, in main
-    temp_files=temp_files, DEBUG=DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 86, in emscript
-    glue, forwarded_data = compiler_glue(metadata, libraries, compiler_engine, temp_files, DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 218, in compiler_glue
-    glue, forwarded_data = compile_settings(compiler_engine, libraries, temp_files)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 530, in compile_settings
-    cwd=path_from_root('src'), error_limit=300)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
-    raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpERtxsr.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
-// and export values on it. There are various ways Module can be used:
-// 1. Not defined. We create it here
-// 2. A function parameter, function(Module) { ..generated code.. }
-// 3. pre-run appended it, var Module = {}; ..generated 
-----------
-
-#include <sys/types.h>
-#include <unistd.h>
-#include <sys/epoll.h>
-
-int main(void) {
-    int efd = 0;
-                  struct epoll_event ee;
-                  ee.events = EPOLLIN|EPOLLOUT|EPOLLET;
-                  ee.data.ptr = NULL;
-                  (void) ee;
-                  efd = epoll_create(100);
-                  if (efd == -1) return 1;;
-    return 0;
-}
-
-----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
-----------
-
-----------------------------------------
-checking for O_PATH
-
-
-----------------------------------------
-checking for sendfile()
-
-error: unresolved symbol: sendfile
-Aborting compilation due to previous errors | undefined
-Traceback (most recent call last):
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 3062, in <module>
-    sys.exit(run())
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 1778, in run
-    final = shared.Building.emscripten(final, append_ext=False, extra_args=extra_args)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/shared.py", line 2268, in emscripten
-    emscripten._main(cmdline)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2228, in _main
-    return temp_files.run_and_clean(lambda: main(
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/tempfiles.py", line 93, in run_and_clean
-    return func()
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2233, in <lambda>
-    DEBUG=DEBUG,
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2159, in main
-    temp_files=temp_files, DEBUG=DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 86, in emscript
-    glue, forwarded_data = compiler_glue(metadata, libraries, compiler_engine, temp_files, DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 218, in compiler_glue
-    glue, forwarded_data = compile_settings(compiler_engine, libraries, temp_files)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 530, in compile_settings
-    cwd=path_from_root('src'), error_limit=300)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
-    raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp12yrqA.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
-// and export values on it. There are various ways Module can be used:
-// 1. Not defined. We create it here
-// 2. A function parameter, function(Module) { ..generated code.. }
-// 3. pre-run appended it, var Module = {}; ..generated 
-----------
-
-#include <sys/types.h>
-#include <unistd.h>
-#include <sys/sendfile.h>
-                  #include <errno.h>
-
-int main(void) {
-    int s = 0, fd = 1;
-                  ssize_t n; off_t off = 0;
-                  n = sendfile(s, fd, &off, 1);
-                  if (n == -1 && errno == ENOSYS) return 1;
-    return 0;
-}
-
-----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -o objs/autotest objs/autotest.c
-----------
-
-----------------------------------------
-checking for sendfile64()
-
-error: unresolved symbol: sendfile
-Aborting compilation due to previous errors | undefined
-Traceback (most recent call last):
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 3062, in <module>
-    sys.exit(run())
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 1778, in run
-    final = shared.Building.emscripten(final, append_ext=False, extra_args=extra_args)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/shared.py", line 2268, in emscripten
-    emscripten._main(cmdline)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2228, in _main
-    return temp_files.run_and_clean(lambda: main(
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/tempfiles.py", line 93, in run_and_clean
-    return func()
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2233, in <lambda>
-    DEBUG=DEBUG,
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2159, in main
-    temp_files=temp_files, DEBUG=DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 86, in emscript
-    glue, forwarded_data = compiler_glue(metadata, libraries, compiler_engine, temp_files, DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 218, in compiler_glue
-    glue, forwarded_data = compile_settings(compiler_engine, libraries, temp_files)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 530, in compile_settings
-    cwd=path_from_root('src'), error_limit=300)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
-    raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpTy4kx2.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
-// and export values on it. There are various ways Module can be used:
-// 1. Not defined. We create it here
-// 2. A function parameter, function(Module) { ..generated code.. }
-// 3. pre-run appended it, var Module = {}; ..generated 
-----------
-
-#include <sys/types.h>
-#include <unistd.h>
-#include <sys/sendfile.h>
-                  #include <errno.h>
-
-int main(void) {
-    int s = 0, fd = 1;
-                  ssize_t n; off_t off = 0;
-                  n = sendfile(s, fd, &off, 1);
-                  if (n == -1 && errno == ENOSYS) return 1;
-    return 0;
-}
-
-----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
-----------
-
-----------------------------------------
-checking for sys/prctl.h
-
-
-----------------------------------------
-checking for prctl(PR_SET_DUMPABLE)
-
-error: unresolved symbol: prctl
-Aborting compilation due to previous errors | undefined
-Traceback (most recent call last):
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 3062, in <module>
-    sys.exit(run())
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 1778, in run
-    final = shared.Building.emscripten(final, append_ext=False, extra_args=extra_args)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/shared.py", line 2268, in emscripten
-    emscripten._main(cmdline)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2228, in _main
-    return temp_files.run_and_clean(lambda: main(
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/tempfiles.py", line 93, in run_and_clean
-    return func()
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2233, in <lambda>
-    DEBUG=DEBUG,
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2159, in main
-    temp_files=temp_files, DEBUG=DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 86, in emscript
-    glue, forwarded_data = compiler_glue(metadata, libraries, compiler_engine, temp_files, DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 218, in compiler_glue
-    glue, forwarded_data = compile_settings(compiler_engine, libraries, temp_files)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 530, in compile_settings
-    cwd=path_from_root('src'), error_limit=300)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
-    raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpyD0evo.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
-// and export values on it. There are various ways Module can be used:
-// 1. Not defined. We create it here
-// 2. A function parameter, function(Module) { ..generated code.. }
-// 3. pre-run appended it, var Module = {}; ..generated 
-----------
-
-#include <sys/types.h>
-#include <unistd.h>
-#include <sys/prctl.h>
-
-int main(void) {
-    if (prctl(PR_SET_DUMPABLE, 1, 0, 0, 0) == -1) return 1;
-    return 0;
-}
-
-----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
-----------
-
-----------------------------------------
-checking for prctl(PR_SET_KEEPCAPS)
-
-error: unresolved symbol: prctl
-Aborting compilation due to previous errors | undefined
-Traceback (most recent call last):
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 3062, in <module>
-    sys.exit(run())
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 1778, in run
-    final = shared.Building.emscripten(final, append_ext=False, extra_args=extra_args)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/shared.py", line 2268, in emscripten
-    emscripten._main(cmdline)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2228, in _main
-    return temp_files.run_and_clean(lambda: main(
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/tempfiles.py", line 93, in run_and_clean
-    return func()
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2233, in <lambda>
-    DEBUG=DEBUG,
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2159, in main
-    temp_files=temp_files, DEBUG=DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 86, in emscript
-    glue, forwarded_data = compiler_glue(metadata, libraries, compiler_engine, temp_files, DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 218, in compiler_glue
-    glue, forwarded_data = compile_settings(compiler_engine, libraries, temp_files)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 530, in compile_settings
-    cwd=path_from_root('src'), error_limit=300)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
-    raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp35RPlu.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
-// and export values on it. There are various ways Module can be used:
-// 1. Not defined. We create it here
-// 2. A function parameter, function(Module) { ..generated code.. }
-// 3. pre-run appended it, var Module = {}; ..generated 
-----------
-
-#include <sys/types.h>
-#include <unistd.h>
-#include <sys/prctl.h>
-
-int main(void) {
-    if (prctl(PR_SET_KEEPCAPS, 1, 0, 0, 0) == -1) return 1;
-    return 0;
-}
-
-----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
-----------
-
-----------------------------------------
-checking for capabilities
-
-objs/autotest.c:4:10: fatal error: 'linux/capability.h' file not found
-#include <linux/capability.h>
-         ^~~~~~~~~~~~~~~~~~~~
-1 error generated.
-ERROR:root:compiler frontend failed to generate LLVM bitcode, halting
-----------
-
-#include <sys/types.h>
-#include <unistd.h>
-#include <linux/capability.h>
-                  #include <sys/syscall.h>
-
-int main(void) {
-    struct __user_cap_data_struct    data;
-                  struct __user_cap_header_struct  header;
-
-                  header.version = _LINUX_CAPABILITY_VERSION_1;
-                  data.effective = CAP_TO_MASK(CAP_NET_RAW);
-                  data.permitted = 0;
-
-                  (void) header;
-                  (void) data;
-                  (void) SYS_capset;
-    return 0;
-}
-
-----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
-----------
-
-----------------------------------------
-checking for crypt_r()
-
-WARNING:root:emcc: cannot find library "crypt"
-
-----------------------------------------
-checking for sys/vfs.h
-
-
-----------------------------------------
 checking for poll()
 
 
 ----------------------------------------
 checking for /dev/poll
 
-objs/autotest.c:4:10: fatal error: 'sys/devpoll.h' file not found
+objs_wasm/autotest.c:4:10: fatal error: 'sys/devpoll.h' file not found
 #include <sys/devpoll.h>
          ^~~~~~~~~~~~~~~
 1 error generated.
@@ -407,13 +107,13 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for kqueue
 
-objs/autotest.c:4:10: fatal error: 'sys/event.h' file not found
+objs_wasm/autotest.c:4:10: fatal error: 'sys/event.h' file not found
 #include <sys/event.h>
          ^~~~~~~~~~~~~
 1 error generated.
@@ -430,7 +130,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -440,7 +140,7 @@ checking for crypt()
 ----------------------------------------
 checking for F_READAHEAD
 
-objs/autotest.c:7:14: error: use of undeclared identifier 'F_READAHEAD'
+objs_wasm/autotest.c:7:14: error: use of undeclared identifier 'F_READAHEAD'
     fcntl(0, F_READAHEAD, 1);;
              ^
 1 error generated.
@@ -457,7 +157,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -471,7 +171,7 @@ checking for O_DIRECT
 ----------------------------------------
 checking for F_NOCACHE
 
-objs/autotest.c:7:14: error: use of undeclared identifier 'F_NOCACHE'
+objs_wasm/autotest.c:7:14: error: use of undeclared identifier 'F_NOCACHE'
     fcntl(0, F_NOCACHE, 1);;
              ^
 1 error generated.
@@ -488,20 +188,20 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for directio()
 
-In file included from objs/autotest.c:5:
+In file included from objs_wasm/autotest.c:5:
 /usr/local/Cellar/emscripten/1.38.12/libexec/system/include/libc/sys/fcntl.h:1:2: warning: redirecting incorrect #include <sys/fcntl.h> to <fcntl.h> [-W#warnings]
 #warning redirecting incorrect #include <sys/fcntl.h> to <fcntl.h>
  ^
-objs/autotest.c:8:5: error: implicit declaration of function 'directio' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+objs_wasm/autotest.c:8:5: error: implicit declaration of function 'directio' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
     directio(0, DIRECTIO_ON);;
     ^
-objs/autotest.c:8:17: error: use of undeclared identifier 'DIRECTIO_ON'
+objs_wasm/autotest.c:8:17: error: use of undeclared identifier 'DIRECTIO_ON'
     directio(0, DIRECTIO_ON);;
                 ^
 1 warning and 2 errors generated.
@@ -519,12 +219,40 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for statfs()
 
+objs_wasm/autotest.c:9:20: error: variable has incomplete type 'struct statfs'
+    struct statfs  fs;
+                   ^
+objs_wasm/autotest.c:9:12: note: forward declaration of 'struct statfs'
+    struct statfs  fs;
+           ^
+objs_wasm/autotest.c:10:19: error: implicit declaration of function 'statfs' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                  statfs(".", &fs);;
+                  ^
+2 errors generated.
+ERROR:root:compiler frontend failed to generate LLVM bitcode, halting
+----------
+
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/param.h>
+                  #include <sys/mount.h>
+                  
+
+int main(void) {
+    struct statfs  fs;
+                  statfs(".", &fs);;
+    return 0;
+}
+
+----------
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
+----------
 
 ----------------------------------------
 checking for statvfs()
@@ -558,7 +286,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpYJXCLn.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpAfGhSW.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -575,7 +303,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -606,7 +334,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpmN5HEu.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpHbyNVN.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -623,7 +351,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -ldl
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1 -ldl
 ----------
 
 ----------------------------------------
@@ -633,23 +361,33 @@ checking for sched_yield()
 ----------------------------------------
 checking for sched_setaffinity()
 
-objs/autotest.c:8:19: error: implicitly declaring library function 'memset' with type 'void *(void *, int, unsigned long)' [-Werror,-Wimplicit-function-declaration]
+objs_wasm/autotest.c:7:5: error: use of undeclared identifier 'cpu_set_t'
+    cpu_set_t mask;
+    ^
+objs_wasm/autotest.c:8:19: error: implicit declaration of function 'CPU_ZERO' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
                   CPU_ZERO(&mask);
                   ^
-/usr/local/Cellar/emscripten/1.38.12/libexec/system/include/libc/sched.h:127:23: note: expanded from macro 'CPU_ZERO'
-#define CPU_ZERO(set) CPU_ZERO_S(sizeof(cpu_set_t),set)
-                      ^
-/usr/local/Cellar/emscripten/1.38.12/libexec/system/include/libc/sched.h:110:30: note: expanded from macro 'CPU_ZERO_S'
-#define CPU_ZERO_S(size,set) memset(set,0,size)
-                             ^
-objs/autotest.c:8:19: note: include the header <string.h> or explicitly provide a declaration for 'memset'
-/usr/local/Cellar/emscripten/1.38.12/libexec/system/include/libc/sched.h:127:23: note: expanded from macro 'CPU_ZERO'
-#define CPU_ZERO(set) CPU_ZERO_S(sizeof(cpu_set_t),set)
-                      ^
-/usr/local/Cellar/emscripten/1.38.12/libexec/system/include/libc/sched.h:110:30: note: expanded from macro 'CPU_ZERO_S'
-#define CPU_ZERO_S(size,set) memset(set,0,size)
-                             ^
-1 error generated.
+objs_wasm/autotest.c:8:29: error: use of undeclared identifier 'mask'; did you mean 'main'?
+                  CPU_ZERO(&mask);
+                            ^~~~
+                            main
+objs_wasm/autotest.c:6:5: note: 'main' declared here
+int main(void) {
+    ^
+objs_wasm/autotest.c:9:19: error: implicit declaration of function 'sched_setaffinity' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                  sched_setaffinity(0, sizeof(cpu_set_t), &mask);
+                  ^
+objs_wasm/autotest.c:9:47: error: use of undeclared identifier 'cpu_set_t'
+                  sched_setaffinity(0, sizeof(cpu_set_t), &mask);
+                                              ^
+objs_wasm/autotest.c:9:60: error: use of undeclared identifier 'mask'; did you mean 'main'?
+                  sched_setaffinity(0, sizeof(cpu_set_t), &mask);
+                                                           ^~~~
+                                                           main
+objs_wasm/autotest.c:6:5: note: 'main' declared here
+int main(void) {
+    ^
+6 errors generated.
 ERROR:root:compiler frontend failed to generate LLVM bitcode, halting
 ----------
 
@@ -665,13 +403,13 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for SO_SETFIB
 
-objs/autotest.c:7:31: error: use of undeclared identifier 'SO_SETFIB'
+objs_wasm/autotest.c:7:31: error: use of undeclared identifier 'SO_SETFIB'
     setsockopt(0, SOL_SOCKET, SO_SETFIB, NULL, 0);
                               ^
 1 error generated.
@@ -688,7 +426,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -719,7 +457,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpe_llnI.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpmG4kSe.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -736,13 +474,13 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for SO_ACCEPTFILTER
 
-objs/autotest.c:7:31: error: use of undeclared identifier 'SO_ACCEPTFILTER'
+objs_wasm/autotest.c:7:31: error: use of undeclared identifier 'SO_ACCEPTFILTER'
     setsockopt(0, SOL_SOCKET, SO_ACCEPTFILTER, NULL, 0);
                               ^
 1 error generated.
@@ -759,13 +497,13 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for SO_BINDANY
 
-objs/autotest.c:7:31: error: use of undeclared identifier 'SO_BINDANY'
+objs_wasm/autotest.c:7:31: error: use of undeclared identifier 'SO_BINDANY'
     setsockopt(0, SOL_SOCKET, SO_BINDANY, NULL, 0);
                               ^
 1 error generated.
@@ -782,7 +520,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -813,7 +551,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpVRMpmZ.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpXrWYyA.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -831,13 +569,13 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for IP_BINDANY
 
-objs/autotest.c:8:31: error: use of undeclared identifier 'IP_BINDANY'
+objs_wasm/autotest.c:8:31: error: use of undeclared identifier 'IP_BINDANY'
     setsockopt(0, IPPROTO_IP, IP_BINDANY, NULL, 0);
                               ^
 1 error generated.
@@ -855,7 +593,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -886,7 +624,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpVguER7.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpoLpmnv.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -904,13 +642,13 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for IP_RECVDSTADDR
 
-objs/autotest.c:8:31: error: use of undeclared identifier 'IP_RECVDSTADDR'
+objs_wasm/autotest.c:8:31: error: use of undeclared identifier 'IP_RECVDSTADDR'
     setsockopt(0, IPPROTO_IP, IP_RECVDSTADDR, NULL, 0);
                               ^
 1 error generated.
@@ -928,13 +666,13 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for IP_SENDSRCADDR
 
-objs/autotest.c:8:31: error: use of undeclared identifier 'IP_SENDSRCADDR'
+objs_wasm/autotest.c:8:31: error: use of undeclared identifier 'IP_SENDSRCADDR'
     setsockopt(0, IPPROTO_IP, IP_SENDSRCADDR, NULL, 0);
                               ^
 1 error generated.
@@ -952,7 +690,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -983,7 +721,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp8X24HX.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpjEYOE8.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1004,7 +742,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1035,7 +773,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpBwcDl0.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpyPxkQF.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1053,7 +791,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1084,7 +822,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpkihbpP.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpvruT5n.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1103,7 +841,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1134,7 +872,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpri1s0I.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp1R_gN3.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1155,7 +893,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1186,7 +924,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmp4rnHPN.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpKDWMBU.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1205,42 +943,26 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for TCP_INFO
 
-error: unresolved symbol: htons
-Aborting compilation due to previous errors | undefined
-Traceback (most recent call last):
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 3062, in <module>
-    sys.exit(run())
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emcc.py", line 1778, in run
-    final = shared.Building.emscripten(final, append_ext=False, extra_args=extra_args)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/shared.py", line 2268, in emscripten
-    emscripten._main(cmdline)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2228, in _main
-    return temp_files.run_and_clean(lambda: main(
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/tempfiles.py", line 93, in run_and_clean
-    return func()
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2233, in <lambda>
-    DEBUG=DEBUG,
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 2159, in main
-    temp_files=temp_files, DEBUG=DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 86, in emscript
-    glue, forwarded_data = compiler_glue(metadata, libraries, compiler_engine, temp_files, DEBUG)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 218, in compiler_glue
-    glue, forwarded_data = compile_settings(compiler_engine, libraries, temp_files)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/emscripten.py", line 530, in compile_settings
-    cwd=path_from_root('src'), error_limit=300)
-  File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
-    raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpwLDKJm.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
-// and export values on it. There are various ways Module can be used:
-// 1. Not defined. We create it here
-// 2. A function parameter, function(Module) { ..generated code.. }
-// 3. pre-run appended it, var Module = {}; ..generated 
+objs_wasm/autotest.c:9:24: error: invalid application of 'sizeof' to an incomplete type 'struct tcp_info'
+    socklen_t optlen = sizeof(struct tcp_info);
+                       ^     ~~~~~~~~~~~~~~~~~
+objs_wasm/autotest.c:9:38: note: forward declaration of 'struct tcp_info'
+    socklen_t optlen = sizeof(struct tcp_info);
+                                     ^
+objs_wasm/autotest.c:10:35: error: variable has incomplete type 'struct tcp_info'
+                  struct tcp_info ti;
+                                  ^
+objs_wasm/autotest.c:9:38: note: forward declaration of 'struct tcp_info'
+    socklen_t optlen = sizeof(struct tcp_info);
+                                     ^
+2 errors generated.
+ERROR:root:compiler frontend failed to generate LLVM bitcode, halting
 ----------
 
 #include <sys/types.h>
@@ -1261,7 +983,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1292,7 +1014,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpfda8yO.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpiK7A72.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1309,7 +1031,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1340,7 +1062,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpDP3fjG.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpg5Suru.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1357,7 +1079,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1439,7 +1161,7 @@ checking for AF_INET6
 ----------------------------------------
 checking for setproctitle()
 
-objs/autotest.c:7:5: error: implicit declaration of function 'setproctitle' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+objs_wasm/autotest.c:7:5: error: implicit declaration of function 'setproctitle' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
     setproctitle("test");;
     ^
 1 error generated.
@@ -1456,7 +1178,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1474,7 +1196,7 @@ checking for pwritev()
 ----------------------------------------
 checking for sys_nerr
 
-objs/autotest.c:8:18: error: use of undeclared identifier 'sys_nerr'
+objs_wasm/autotest.c:8:18: error: use of undeclared identifier 'sys_nerr'
     printf("%d", sys_nerr);;
                  ^
 1 error generated.
@@ -1492,13 +1214,13 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
 checking for _sys_nerr
 
-objs/autotest.c:8:18: error: use of undeclared identifier '_sys_nerr'
+objs_wasm/autotest.c:8:18: error: use of undeclared identifier '_sys_nerr'
     printf("%d", _sys_nerr);;
                  ^
 1 error generated.
@@ -1516,7 +1238,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1577,7 +1299,7 @@ Traceback (most recent call last):
     cwd=path_from_root('src'), error_limit=300)
   File "/usr/local/Cellar/emscripten/1.38.12/libexec/tools/jsrun.py", line 132, in run_js
     raise Exception('Expected the command ' + str(command) + ' to finish with return code ' + str(assert_returncode) + ', but it returned with code ' + str(proc.returncode) + ' instead! Output: ' + str(ret)[:error_limit])
-Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpTHE5zy.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
+Exception: Expected the command ['/usr/local/bin/node', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/compiler.js', '/tmp/tmpZd8WKa.txt', '/usr/local/Cellar/emscripten/1.38.12/libexec/src/library_pthread_stub.js'] to finish with return code 0, but it returned with code 1 instead! Output: // The Module object: Our interface to the outside world. We import
 // and export values on it. There are various ways Module can be used:
 // 1. Not defined. We create it here
 // 2. A function parameter, function(Module) { ..generated code.. }
@@ -1598,7 +1320,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1621,17 +1343,17 @@ checking for struct tm.tm_gmtoff
 ----------------------------------------
 checking for struct dirent.d_namlen
 
-objs/autotest.c:8:29: error: no member named 'd_namlen' in 'struct dirent'; did you mean 'd_name'?
+objs_wasm/autotest.c:8:29: error: no member named 'd_namlen' in 'struct dirent'; did you mean 'd_name'?
     struct dirent  dir; dir.d_namlen = 0;
                             ^~~~~~~~
                             d_name
 /usr/local/Cellar/emscripten/1.38.12/libexec/system/include/libc/dirent.h:25:7: note: 'd_name' declared here
         char d_name[256];
              ^
-objs/autotest.c:8:38: error: array type 'char [256]' is not assignable
+objs_wasm/autotest.c:8:38: error: array type 'char [256]' is not assignable
     struct dirent  dir; dir.d_namlen = 0;
                         ~~~~~~~~~~~~ ^
-objs/autotest.c:9:42: error: no member named 'd_namlen' in 'struct dirent'; did you mean 'd_name'?
+objs_wasm/autotest.c:9:42: error: no member named 'd_namlen' in 'struct dirent'; did you mean 'd_name'?
                   printf("%d", (int) dir.d_namlen);
                                          ^~~~~~~~
                                          d_name
@@ -1654,7 +1376,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------
@@ -1668,7 +1390,7 @@ checking for sysconf(_SC_NPROCESSORS_ONLN)
 ----------------------------------------
 checking for sysconf(_SC_LEVEL1_DCACHE_LINESIZE)
 
-objs/autotest.c:7:13: error: use of undeclared identifier '_SC_LEVEL1_DCACHE_LINESIZE'
+objs_wasm/autotest.c:7:13: error: use of undeclared identifier '_SC_LEVEL1_DCACHE_LINESIZE'
     sysconf(_SC_LEVEL1_DCACHE_LINESIZE);
             ^
 1 error generated.
@@ -1685,7 +1407,7 @@ int main(void) {
 }
 
 ----------
-/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+/usr/local/Cellar/emscripten/1.38.12/libexec/emcc -pipe -Wno-sign-compare -o objs_wasm/autotest objs_wasm/autotest.c -s WASM=1
 ----------
 
 ----------------------------------------

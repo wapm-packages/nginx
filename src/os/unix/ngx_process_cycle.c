@@ -314,7 +314,7 @@ void ngx_single_process_cycle(ngx_cycle_t *cycle)
     {
         if (cycle->modules[i]->init_process)
         {
-            printf("nginx::module(%lu)init_process\n", i);
+            printf("nginx::module(%lu - %s)init_process\n", i, cycle->modules[i]->name);
             if (cycle->modules[i]->init_process(cycle) == NGX_ERROR)
             {
                 /* fatal */

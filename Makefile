@@ -2,7 +2,7 @@
 default:	build
 
 clean:
-	rm -rf Makefile objs
+	rm -rf Makefile objs_wasm
 
 build:
 	$(MAKE) -f objs_wasm/Makefile

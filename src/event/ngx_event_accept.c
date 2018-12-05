@@ -172,6 +172,7 @@ void ngx_event_accept(ngx_event_t *ev)
         c->pool = ngx_create_pool(ls->pool_size, ev->log);
         if (c->pool == NULL)
         {
+            printf("nginx::ngx_close_accepted_connection::1\n");
             ngx_close_accepted_connection(c);
             return;
         }
@@ -184,6 +185,7 @@ void ngx_event_accept(ngx_event_t *ev)
         c->sockaddr = ngx_palloc(c->pool, socklen);
         if (c->sockaddr == NULL)
         {
+            printf("nginx::ngx_close_accepted_connection::2\n");
             ngx_close_accepted_connection(c);
             return;
         }
@@ -193,6 +195,7 @@ void ngx_event_accept(ngx_event_t *ev)
         log = ngx_palloc(c->pool, sizeof(ngx_log_t));
         if (log == NULL)
         {
+            printf("nginx::ngx_close_accepted_connection::3\n");
             ngx_close_accepted_connection(c);
             return;
         }
@@ -207,6 +210,7 @@ void ngx_event_accept(ngx_event_t *ev)
                 {
                     ngx_log_error(NGX_LOG_ALERT, ev->log, ngx_socket_errno,
                                   ngx_blocking_n " failed");
+                    printf("nginx::ngx_close_accepted_connection::4\n");
                     ngx_close_accepted_connection(c);
                     return;
                 }
@@ -220,6 +224,7 @@ void ngx_event_accept(ngx_event_t *ev)
                 {
                     ngx_log_error(NGX_LOG_ALERT, ev->log, ngx_socket_errno,
                                   ngx_nonblocking_n " failed");
+                    printf("nginx::ngx_close_accepted_connection::5\n");
                     ngx_close_accepted_connection(c);
                     return;
                 }
@@ -294,15 +299,17 @@ void ngx_event_accept(ngx_event_t *ev)
             c->addr_text.data = ngx_pnalloc(c->pool, ls->addr_text_max_len);
             if (c->addr_text.data == NULL)
             {
+                printf("nginx::ngx_close_accepted_connection::6\n");
                 ngx_close_accepted_connection(c);
                 return;
             }
-
+            printf("nginx::ngx_close_accepted_connection::sa_family %hu\n", c->sockaddr->sa_family);
             c->addr_text.len = ngx_sock_ntop(c->sockaddr, c->socklen,
                                              c->addr_text.data,
                                              ls->addr_text_max_len, 0);
             if (c->addr_text.len == 0)
             {
+                printf("nginx::ngx_close_accepted_connection::7(3) %s\n", c->addr_text.data);
                 ngx_close_accepted_connection(c);
                 return;
             }
@@ -332,6 +339,7 @@ void ngx_event_accept(ngx_event_t *ev)
             if (ngx_add_conn(c) == NGX_ERROR)
             {
                 ngx_close_accepted_connection(c);
+                printf("nginx::ngx_close_accepted_connection::8\n");
                 return;
             }
         }
@@ -463,7 +471,7 @@ static void
 ngx_close_accepted_connection(ngx_connection_t *c)
 {
     ngx_socket_t fd;
-
+    printf("nginx::ngx_close_accepted_connection::CLOSING\n");
     ngx_free_connection(c);
 
     fd = c->fd;
