@@ -1,14 +1,14 @@
 [package]
 name = "nginx"
-version = "0.1.0"
+version = "0.1.1"
 description = "Nginx is a web server which can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache"
 readme = "README.md"
 repository = "https://github.com/wapm-packages/nginx"
-abi = "Emscripten"
 
 [[module]]
 name = "nginx"
 source = "nginx.wasm"
+abi = "emscripten"
 
 [[command]]
 name = "nginx"
